@@ -130,7 +130,7 @@ class Client {
     }
 
     /**
-     * Setup the header array for any request to Manifesto
+     * Setup the header array for any request to Critic
      * @param string $clientId
      * @param string $clientSecret
      * @return array

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Manifesto\Exceptions;
+namespace Critic\Exceptions;
 
 
 class UnauthorisedAccessException extends ErrorResponseException {
