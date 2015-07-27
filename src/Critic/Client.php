@@ -8,9 +8,9 @@ class Client {
     protected $clientSecret;
 
     /**
-     * @var \personaclient\PersonaClient
+     * @var \Talis\Persona\Client\Tokens
      */
-    protected $personaClient;
+    protected $tokenClient;
 
     /**
      * @var array
@@ -46,25 +46,25 @@ class Client {
 
     /**
      * For mocking
-     * @return \personaclient\PersonaClient
+     * @return \Talis\Persona\Client\Tokens
      */
-    protected function getPersonaClient()
+    protected function getTokenClient()
     {
-        if(!isset($this->personaClient))
+        if(!isset($this->tokenClient))
         {
-            $this->personaClient = new \personaclient\PersonaClient($this->personaConnectValues);
+            $this->tokenClient = new \Talis\Persona\Client\Tokens($this->personaConnectValues);
         }
 
-        return $this->personaClient;
+        return $this->tokenClient;
     }
 
     /**
      * Allows PersonaClient override, if PersonaClient has been initialized elsewhere
-     * @param \personaclient\PersonaClient $personaClient
+     * @param \Talis\Persona\Client\Tokens $personaClient
      */
-    public function setPersonaClient(\personaclient\PersonaClient $personaClient)
+    public function setTokenClient(\Talis\Persona\Client\Tokens $personaClient)
     {
-        $this->personaClient = $personaClient;
+        $this->tokenClient = $personaClient;
     }
 
     /**
@@ -137,7 +137,7 @@ class Client {
      */
     protected function getHeaders($clientId, $clientSecret)
     {
-        $arrPersonaToken = $this->getPersonaClient()->obtainNewToken($clientId, $clientSecret);
+        $arrPersonaToken = $this->getTokenClient()->obtainNewToken($clientId, $clientSecret);
         $personaToken = $arrPersonaToken['access_token'];
         $headers = array(
             'Content-Type'=>'application/json',
