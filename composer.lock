@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "91c9c1cde3219a81fe1d487f0e364854",
+    "hash": "3d2505196128adc939f01ac04853962e",
+    "content-hash": "a9aaa0a6a34d87cf9b97434977cebcfa",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -856,16 +857,16 @@
         },
         {
             "name": "talis/persona-php-client",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/talis/persona-php-client.git",
-                "reference": "2265f9b063023b6c24f3cb42255874cbbbb9da1f"
+                "reference": "5f8908fd23ddbb76e82987fa9e69a428581e28de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/talis/persona-php-client/zipball/2265f9b063023b6c24f3cb42255874cbbbb9da1f",
-                "reference": "2265f9b063023b6c24f3cb42255874cbbbb9da1f",
+                "url": "https://api.github.com/repos/talis/persona-php-client/zipball/5f8908fd23ddbb76e82987fa9e69a428581e28de",
+                "reference": "5f8908fd23ddbb76e82987fa9e69a428581e28de",
                 "shasum": ""
             },
             "require": {
@@ -904,10 +905,10 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/talis/persona-php-client/tree/1.0.0",
+                "source": "https://github.com/talis/persona-php-client/tree/2.0.0",
                 "issues": "https://github.com/talis/persona-php-client/issues"
             },
-            "time": "2016-04-04 11:46:35"
+            "time": "2016-04-18 14:29:02"
         }
     ],
     "packages-dev": [
