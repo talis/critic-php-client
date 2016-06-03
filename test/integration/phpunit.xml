@@ -10,7 +10,7 @@
     </filter>
 
     <testsuites>
-        <testsuite name="criticphpclient_integration_tests">
+        <testsuite name="criticclient_integration_tests">
             <directory>.</directory>
         </testsuite>
     </testsuites>

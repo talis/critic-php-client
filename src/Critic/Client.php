@@ -28,6 +28,7 @@ class Client {
     protected $httpClient;
 
     /**
+     * @param string $criticBaseUrl
      * @param array $personaConnectValues
      */
     public function __construct($criticBaseUrl, $personaConnectValues = array())
@@ -82,24 +83,27 @@ class Client {
 
     /**
      *
-     *
+     * @param array $postFields
      * @param string $clientId
      * @param string $clientSecret
+     * @param array $headerParams a set of optional parameters you can pass into method to obtain a persona token <pre>
+     *          scope: (string) to obtain a new scoped token
+     *          useCookies: (boolean) to enable or disable checking cookies for pre-existing access_token (and setting a new cookie with the resultant token)
+     *          use_cache: (boolean) use cached called (defaults to true) </pre>
      * @throws \Exception|\Guzzle\Http\Exception\ClientErrorResponseException
      * @throws Exceptions\UnauthorisedAccessException
      */
-    public function createReview($postFields, $clientId, $clientSecret)
+    public function createReview($postFields, $clientId, $clientSecret, $headerParams = array())
     {
+
         try
         {
             $client = $this->getHTTPClient();
-            $headers = $this->getHeaders($clientId, $clientSecret);
+            $headers = $this->getHeaders($clientId, $clientSecret, $headerParams);
 
             $request = $client->post($this->criticBaseUrl, $headers, $postFields);
 
             $response = $request->send();
-
-
 
             if($response->getStatusCode() == 201)
             {
@@ -133,11 +137,12 @@ class Client {
      * Setup the header array for any request to Critic
      * @param string $clientId
      * @param string $clientSecret
+     * @param array $params
      * @return array
      */
-    protected function getHeaders($clientId, $clientSecret)
+    protected function getHeaders($clientId, $clientSecret, $params = array())
     {
-        $arrPersonaToken = $this->getTokenClient()->obtainNewToken($clientId, $clientSecret);
+        $arrPersonaToken = $this->getTokenClient()->obtainNewToken($clientId, $clientSecret, $params);
         $personaToken = $arrPersonaToken['access_token'];
         $headers = array(
             'Content-Type'=>'application/json',
@@ -146,9 +151,12 @@ class Client {
         return $headers;
     }
 
+    /**
+     * @param $responseBody
+     * @return array
+     */
     protected function processErrorResponseBody($responseBody)
     {
-
         $error = array('error_code'=>null, 'message'=>null);
         $response = json_decode($responseBody, true);
 
