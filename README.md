@@ -36,6 +36,7 @@ $criticClient = new \Critic\Client(CRITIC_BASE_URL, OAUTH_CONNECT_VALUES);
 $criticClient->createReview(
   $postFields,
   OAUTH_CLIENT_ID,
-  OAUTH_CLIENT_SECRET
+  OAUTH_CLIENT_SECRET,
+  $headerParams
 );
 ```
