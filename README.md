@@ -4,6 +4,7 @@ critic-php-client
 A PHP client to manage communication to Critic
 
 [![Build status](https://travis-ci.org/talis/critic-php-client.svg?branch=master)](https://travis-ci.org/talis/critic-php-client)
+[![Dependency Status](https://dependencyci.com/github/talis/critic-php-client/badge)](https://dependencyci.com/github/talis/critic-php-client)
 
 Usage
 -----
