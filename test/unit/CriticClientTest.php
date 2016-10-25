@@ -23,6 +23,7 @@ class CriticClientTest extends PHPUnit_Framework_TestCase
             'userAgent' => 'userAgentVal',
             'persona_host' => 'persona_host_val',
             'persona_oauth_route' => 'persona_oauth_route_val',
+            'cacheBackend' => new \Doctrine\Common\Cache\VoidCache()
         );
         $this->postFields = array('listUri' => 'http://somelist');
     }
