@@ -27,7 +27,7 @@
         <!-- Install dependencies through Composer -->
         <exec executable="php" failonerror="true">
             <arg value="composer.phar"/>
-            <arg value="install"/>
+            <arg value="update"/>
         </exec>
     </target>
 
