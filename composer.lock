@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c5d0eb2d5fc555e24ccab7753aff9cfa",
+    "hash": "5c7992439c0d779f5e5901d393228c89",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -774,16 +774,16 @@
         },
         {
             "name": "talis/persona-php-client",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/talis/persona-php-client.git",
-                "reference": "2384566d52d6dad9f43148dc3db1a88c5d974ecd"
+                "reference": "9a88d80e3a0faeed051c1190e791e6f4be89d143"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/talis/persona-php-client/zipball/2384566d52d6dad9f43148dc3db1a88c5d974ecd",
-                "reference": "2384566d52d6dad9f43148dc3db1a88c5d974ecd",
+                "url": "https://api.github.com/repos/talis/persona-php-client/zipball/9a88d80e3a0faeed051c1190e791e6f4be89d143",
+                "reference": "9a88d80e3a0faeed051c1190e791e6f4be89d143",
                 "shasum": ""
             },
             "require": {
@@ -822,10 +822,10 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/talis/persona-php-client/tree/4.0.0",
+                "source": "https://github.com/talis/persona-php-client/tree/4.0.1",
                 "issues": "https://github.com/talis/persona-php-client/issues"
             },
-            "time": "2017-02-13 10:51:30"
+            "time": "2017-03-06 13:42:51"
         }
     ],
     "packages-dev": [
