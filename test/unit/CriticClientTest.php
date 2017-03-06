@@ -39,7 +39,6 @@ class CriticClientTest extends PHPUnit_Framework_TestCase
      */
     function testCreateReviewException()
     {
-        $_COOKIE['access_token'] = json_encode(array('access_token' => 'some_token'));
         $this->setUp();
 
         $plugin = new Guzzle\Plugin\Mock\MockPlugin();
@@ -54,7 +53,6 @@ class CriticClientTest extends PHPUnit_Framework_TestCase
         $criticClient->setPersonaConnectValues($this->personaConfig);
 
         $criticClient->createReview($this->postFields, '', '');
-// $criticClient->createReview($this->postFields, 'someClientId', 'someClientSecret');
     }
 
     /**
@@ -64,7 +62,6 @@ class CriticClientTest extends PHPUnit_Framework_TestCase
      */
     function testCreateReviewGuzzleException()
     {
-        $_COOKIE['access_token'] = json_encode(array('access_token' => 'some_token'));
         $this->setUp();
 
         $plugin = new Guzzle\Plugin\Mock\MockPlugin();
@@ -82,36 +79,11 @@ class CriticClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Access token in cookies but not used when useCookies is false
-     *
-     * @expectedException \Exception
-     * @expectedExceptionMessage You must specify clientId, and clientSecret to obtain a new token
-     */
-    function testCreateReviewWithUseCookiesFalseFailure()
-    {
-        $_COOKIE['access_token'] = json_encode(array('access_token' => 'some_token'));
-        $this->setUp();
-
-        $plugin = new Guzzle\Plugin\Mock\MockPlugin();
-        $plugin->addResponse(new Guzzle\Http\Message\Response(201, null, json_encode(array())));
-        $client = new Guzzle\Http\Client();
-        $client->addSubscriber($plugin);
-
-        /** @var \Critic\Client | PHPUnit_Framework_MockObject_MockObject $criticClient */
-        $criticClient = $this->getMock('\Critic\Client', array('getHTTPClient'), array($this->criticBaseUrl));
-        $criticClient->expects($this->once())->method('getHTTPClient')->will($this->returnValue($client));
-        $criticClient->setPersonaConnectValues($this->personaConfig);
-
-        $criticClient->createReview($this->postFields, '', '', array('useCookies'=>false));
-    }
-
-    /**
      * @expectedException \Exception
      * @expectedExceptionMessage Did not retrieve successful response code from persona: -1
      */
     function testCreateReviewWithInvalidPersonaConfigFails()
     {
-        $_COOKIE['access_token'] = json_encode(array('access_token' => 'some_token'));
         $this->setUp();
 
         $plugin = new Guzzle\Plugin\Mock\MockPlugin();
@@ -124,6 +96,6 @@ class CriticClientTest extends PHPUnit_Framework_TestCase
         $criticClient->expects($this->once())->method('getHTTPClient')->will($this->returnValue($client));
         $criticClient->setPersonaConnectValues($this->personaConfig);
 
-        $criticClient->createReview($this->postFields, 'someClientId', 'someClientSecret', array('useCookies'=>false));
+        $criticClient->createReview($this->postFields, 'someClientId', 'someClientSecret');
     }
 }
